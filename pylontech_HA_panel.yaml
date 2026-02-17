@@ -1,0 +1,166 @@
+views:
+  - type: sections
+    max_columns: 2
+    title: Pylontech
+    path: pylontech
+    icon: mdi:battery-charging-30
+    sections:
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.pylontech_monitor_battery1_voltage
+                secondary_info: last-updated
+            state_color: true
+            show_header_toggle: false
+          - type: custom:apexcharts-card
+            header:
+              show: true
+              title: State of Charge (SoC) - 15 Packs
+              show_states: true
+              colorize_states: true
+            graph_span: 1d
+            all_series_config:
+              stroke_width: 1.5
+              opacity: 0.8
+              type: line
+              curve: smooth
+            series:
+              - entity: sensor.pylontech_monitor_battery1_soc
+                name: Bat 1
+              - entity: sensor.pylontech_monitor_battery2_soc
+                name: Bat 2
+              - entity: sensor.pylontech_monitor_battery3_soc
+                name: Bat 3
+          - type: custom:apexcharts-card
+            header:
+              show: true
+              title: Lowest Cell Voltage - 15 Packs
+              show_states: true
+              colorize_states: true
+            graph_span: 1d
+            all_series_config:
+              stroke_width: 1.5
+              opacity: 0.8
+              type: line
+              curve: smooth
+            series:
+              - entity: sensor.pylontech_monitor_battery1_lowest_cell_voltage
+                name: Bat 1
+                float_precision: 3
+              - entity: sensor.pylontech_monitor_battery2_lowest_cell_voltage
+                name: Bat 2
+                float_precision: 3
+              - entity: sensor.pylontech_monitor_battery3_lowest_cell_voltage
+                name: Bat 3
+                float_precision: 3
+          - type: custom:apexcharts-card
+            header:
+              show: true
+              title: Cell Imbalance - 15 Packs
+              show_states: true
+              colorize_states: true
+            graph_span: 1d
+            all_series_config:
+              stroke_width: 1.5
+              opacity: 0.8
+              type: line
+              curve: smooth
+            series:
+              - entity: sensor.battery1_cell_imbalance
+                name: Bat 1
+                float_precision: 3
+              - entity: sensor.battery2_cell_imbalance
+                name: Bat 2
+                float_precision: 3
+              - entity: sensor.battery3_cell_imbalance
+                name: Bat 3
+                float_precision: 3
+      - type: grid
+        cards:
+          - type: tile
+            entity: button.pylontech_monitor_force_update_pwr
+            name: Update
+            vertical: false
+            features:
+              - type: button
+            features_position: inline
+          - type: custom:apexcharts-card
+            header:
+              show: true
+              title: State of Charge (Voltage) - 15 Packs
+              show_states: true
+              colorize_states: true
+            graph_span: 1d
+            all_series_config:
+              stroke_width: 1.5
+              opacity: 0.8
+              type: line
+              curve: smooth
+            series:
+              - entity: sensor.pylontech_monitor_battery1_voltage
+                name: Bat 1
+              - entity: sensor.pylontech_monitor_battery2_voltage
+                name: Bat 2
+              - entity: sensor.pylontech_monitor_battery3_voltage
+                name: Bat 3
+          - type: custom:apexcharts-card
+            header:
+              show: true
+              title: Highest Cell Voltage - 15 Packs
+              show_states: true
+              colorize_states: true
+            graph_span: 1d
+            all_series_config:
+              stroke_width: 1.5
+              opacity: 0.8
+              type: line
+              curve: smooth
+            series:
+              - entity: sensor.pylontech_monitor_battery1_highest_cell_voltage
+                name: Bat 1
+                float_precision: 3
+              - entity: sensor.pylontech_monitor_battery2_highest_cell_voltage
+                name: Bat 2
+                float_precision: 3
+              - entity: sensor.pylontech_monitor_battery3_highest_cell_voltage
+                name: Bat 3
+                float_precision: 3
+          - type: custom:apexcharts-card
+            header:
+              show: true
+              title: State of Charge (Current) - 15 Packs
+              show_states: true
+              colorize_states: true
+            graph_span: 1d
+            all_series_config:
+              stroke_width: 1.5
+              opacity: 0.8
+              type: line
+              curve: smooth
+            series:
+              - entity: sensor.pylontech_monitor_battery1_current
+                name: Bat 1
+              - entity: sensor.pylontech_monitor_battery2_current
+                name: Bat 2
+              - entity: sensor.pylontech_monitor_battery3_current
+                name: Bat 3
+          - type: custom:apexcharts-card
+            header:
+              show: true
+              title: Average temperature (Temp) - 15 Packs
+              show_states: true
+              colorize_states: true
+            graph_span: 1d
+            all_series_config:
+              stroke_width: 1.5
+              opacity: 0.8
+              type: line
+              curve: smooth
+            series:
+              - entity: sensor.pylontech_monitor_battery1_temp_average
+                name: Bat 1
+              - entity: sensor.pylontech_monitor_battery2_temp_average
+                name: Bat 2
+              - entity: sensor.pylontech_monitor_battery3_temp_average
+                name: Bat 3
